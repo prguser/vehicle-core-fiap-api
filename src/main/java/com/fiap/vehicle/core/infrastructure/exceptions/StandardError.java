@@ -1,66 +1,72 @@
 package com.fiap.vehicle.core.infrastructure.exceptions;
+
 import java.io.Serializable;
 import java.time.Instant;
 
 public class StandardError implements Serializable {
 
-    private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L;
 
-    private Instant timestamp;
-    private Integer status;
-    private String error;
-    private String message;
-    private String path;
+	private Instant timestamp;
 
-    public StandardError() {
-    }
+	private Integer status;
 
-    public StandardError(Instant timestamp, Integer status, String error, String message, String path) {
-        super();
-        this.timestamp = timestamp;
-        this.status = status;
-        this.error = error;
-        this.message = message;
-        this.path = path;
-    }
+	private String error;
 
-    public Instant getTimestamp() {
-        return timestamp;
-    }
+	private String message;
 
-    public void setTimestamp(Instant timestamp) {
-        this.timestamp = timestamp;
-    }
+	private String path;
 
-    public Integer getStatus() {
-        return status;
-    }
+	public StandardError() {
+	}
 
-    public void setStatus(Integer status) {
-        this.status = status;
-    }
+	public StandardError(Instant timestamp, Integer status, String error, String message, String path) {
+		super();
+		this.timestamp = timestamp;
+		this.status = status;
+		this.error = error;
+		this.message = message;
+		this.path = path;
+	}
 
-    public String getError() {
-        return error;
-    }
+	public Instant getTimestamp() {
+		return timestamp;
+	}
 
-    public void setError(String error) {
-        this.error = error;
-    }
+	public void setTimestamp(Instant timestamp) {
+		this.timestamp = timestamp;
+	}
 
-    public String getMessage() {
-        return message;
-    }
+	public Integer getStatus() {
+		return status;
+	}
 
-    public void setMessage(String message) {
-        this.message = message;
-    }
+	public void setStatus(Integer status) {
+		this.status = status;
+	}
 
-    public String getPath() {
-        return path;
-    }
+	public String getError() {
+		return error;
+	}
 
-    public void setPath(String path) {
-        this.path = path;
-    }
+	public void setError(String error) {
+		this.error = error;
+	}
+
+	public String getMessage() {
+		return message;
+	}
+
+	public void setMessage(String message) {
+		this.message = message;
+	}
+
+	public String getPath() {
+		return path;
+	}
+
+	public void setPath(String path) {
+		this.path = path;
+	}
+
 }

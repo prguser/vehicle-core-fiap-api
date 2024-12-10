@@ -1,4 +1,4 @@
-CREATE TABLE VEHICLE (
+CREATE TABLE vehicle (
                          VEHICLE_ID int8 NOT NULL,                -- ID do veículo (UUID)
                          MAKE VARCHAR(255) NOT NULL,               -- Marca do veículo
                          MODEL VARCHAR(255) NOT NULL,              -- Modelo do veículo
@@ -13,12 +13,12 @@ CREATE TABLE VEHICLE (
 );
 
 
-CREATE TABLE clientes(
+CREATE TABLE client(
                          cpf varchar(13) not null,
                          nome varchar(255) not null,
                          email varchar(255) not null,
                          datacadastro timestamp with time zone,
-                         constraint clientes_pk primary key (cpf)
+                         constraint client_pk primary key (cpf)
 );
 
-CREATE SEQUENCE VEICULO_SEQUENCE;
+CREATE SEQUENCE VEHICLE_SEQUENCE;

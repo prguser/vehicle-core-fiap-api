@@ -5,7 +5,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 
 @SpringBootApplication
-@EnableFeignClients(basePackages = "com.fiap.vehicle.core.infrastructure.sales") // ajuste para o pacote correto
+@EnableFeignClients(basePackages = "com.fiap.vehicle.core.infrastructure.sales") // ajuste
+																					// para
+																					// o
+																					// pacote
+																					// correto
 
 public class VehicleCoreFiapApiApplication {
 

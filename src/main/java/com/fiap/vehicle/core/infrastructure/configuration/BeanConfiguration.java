@@ -1,18 +1,16 @@
 package com.fiap.vehicle.core.infrastructure.configuration;
 
-import com.fiap.vehicle.core.domain.entity.veiculo.gateway.VehicleGateway;
-import com.fiap.vehicle.core.domain.entity.usuario.gateway.ClienteGateway;
+import com.fiap.vehicle.core.domain.entity.vehicle.gateway.VehicleGateway;
+import com.fiap.vehicle.core.domain.entity.client.gateway.ClientGateway;
 
-
-import com.fiap.vehicle.core.infrastructure.persistence.veiculo.VehicleRepository;
-import com.fiap.vehicle.core.infrastructure.persistence.cliente.SpringClienteRepository;
-import com.fiap.vehicle.core.infrastructure.sales.VehicleSalesClient;
-import com.fiap.vehicle.core.infrastructure.usuario.gateway.ClienteDataBaseRepository;
-import com.fiap.vehicle.core.infrastructure.veiculo.gateway.VeiculoDataBaseRepository;
-import com.fiap.vehicle.core.usecases.cliente.AuthorizationUseCase;
+import com.fiap.vehicle.core.infrastructure.persistence.vehicle.VehicleRepository;
+import com.fiap.vehicle.core.infrastructure.persistence.client.SpringClientRepository;
+import com.fiap.vehicle.core.infrastructure.client.gateway.ClientDataBaseRepository;
+import com.fiap.vehicle.core.infrastructure.vehicle.gateway.VehicleDataBaseRepository;
+import com.fiap.vehicle.core.usecases.client.AuthorizationUseCase;
 import com.fiap.vehicle.core.usecases.sales.VehicleCoreService;
-import com.fiap.vehicle.core.usecases.veiculo.VehicleUseCase;
-import com.fiap.vehicle.core.usecases.cliente.ClienteUseCase;
+import com.fiap.vehicle.core.usecases.vehicle.VehicleUseCase;
+import com.fiap.vehicle.core.usecases.client.ClientUseCase;
 import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -25,11 +23,9 @@ public class BeanConfiguration {
 		return new ModelMapper();
 	}
 
-
-
 	@Bean
 	public VehicleGateway createVehicleGateway(VehicleRepository vehicleRepository, ModelMapper mapper) {
-		return new VeiculoDataBaseRepository(vehicleRepository, mapper);
+		return new VehicleDataBaseRepository(vehicleRepository, mapper);
 	}
 
 	@Bean
@@ -38,13 +34,13 @@ public class BeanConfiguration {
 	}
 
 	@Bean
-	public ClienteGateway createClienteGateway(SpringClienteRepository springClienteRepository,ModelMapper mapper) {
-		return new ClienteDataBaseRepository(springClienteRepository,mapper);
+	public ClientGateway createClienteGateway(SpringClientRepository springClientRepository, ModelMapper mapper) {
+		return new ClientDataBaseRepository(springClientRepository, mapper);
 	}
 
 	@Bean
-	ClienteUseCase createUserCase(ClienteGateway clienteGateway) {
-		return new ClienteUseCase(clienteGateway);
+	ClientUseCase createUserCase(ClientGateway clientGateway) {
+		return new ClientUseCase(clientGateway);
 	}
 
 	@Bean

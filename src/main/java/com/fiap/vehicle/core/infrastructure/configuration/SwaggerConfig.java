@@ -17,27 +17,34 @@ public class SwaggerConfig {
 
 		Contact contact = new Contact();
 		contact.setEmail("e-mail@gmail.com");
-		contact.setName("Equipe Vehicle API");
+		contact.setName("Vehicle API");
 		contact.setUrl("https://www.domain.com");
 
 		License mitLicense = new License().name("MIT License").url("https://choosealicense.com/licenses/mit/");
 
-		Info info = new Info()
-				.title("Vehicle Core FIAP API - Management Service")
-				.version("1.0")
-				.contact(contact)
-				.description("Esta API faz parte do sistema FIAP Hackathon e é responsável pelo gerenciamento de veículos. Permite o cadastro, listagem, consulta detalhada e atualização de informações de veículos. A API também oferece suporte a operações de busca com autenticação via JWT.")
-				.termsOfService("https://www.fiaphackathon.com/terms")
-				.license(mitLicense);
+		Info info = new Info().title("Vehicle Core FIAP API")
+			.version("1.0")
+			.contact(contact)
+			.description(
+					"Esta API para gerenciar os clientes e veículos. Permite o cadastro, listagem, consulta detalhada e atualização de informações de veículos.")
+			.termsOfService("https://www.fiap.com/terms")
+			.license(mitLicense);
 
-		return new OpenAPI()
-				.info(info)
-				.addSecurityItem(new SecurityRequirement().addList("BearerAuth"))  // Adiciona o esquema de autenticação nas requisições
-				.components(new io.swagger.v3.oas.models.Components()
-						.addSecuritySchemes("BearerAuth",
-								new SecurityScheme()
-										.type(SecurityScheme.Type.HTTP)
-										.scheme("bearer")
-										.bearerFormat("JWT")));  // Configura o tipo do token JWT
+		return new OpenAPI().info(info)
+			.addSecurityItem(new SecurityRequirement().addList("BearerAuth")) // Adiciona
+																				// o
+																				// esquema
+																				// de
+																				// autenticação
+																				// nas
+																				// requisições
+			.components(new io.swagger.v3.oas.models.Components().addSecuritySchemes("BearerAuth",
+					new SecurityScheme().type(SecurityScheme.Type.HTTP).scheme("bearer").bearerFormat("JWT"))); // Configura
+																												// o
+																												// tipo
+																												// do
+																												// token
+																												// JWT
 	}
+
 }
