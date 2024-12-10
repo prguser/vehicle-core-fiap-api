@@ -31,7 +31,7 @@ spec:
                   name: aws-credentials
                   key: AWS_SECRET_ACCESS_KEY
             - name: DATASOURCE_URL
-              value: "jdbc:postgresql://database.ctkuimy64klv.us-east-1.rds.amazonaws.com:5432/"
+              value: "jdbc:postgresql://education.cziagpbhx9xf.us-east-1.rds.amazonaws.com:5432/"
             - name: POSTGRES_USER
               valueFrom:
                 secretKeyRef:
